@@ -18,10 +18,10 @@ namespace Chap05App
 
                 if (line == "quit") break;
 
-                double number = 0;
-                double.TryParse(line,out number); //int.Parse(line); //TryParse(입력값, out 출력값): 에러값을 넣을 경우 '0'으로 출력
+                int number = 0;
+                int.TryParse(line,out number); //int.Parse(line); //TryParse(입력값, out 출력값): 에러값을 넣을 경우 '0'으로 출력
                 // todo 아래로직 수정
-                if(number>0)
+                if(number > 0)
                 {
                     if (number % 2 == 0)
                         Console.WriteLine("짝수\n");
