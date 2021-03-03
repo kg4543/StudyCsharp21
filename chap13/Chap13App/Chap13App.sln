@@ -5,9 +5,13 @@ VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chap13App", "Chap13App\Chap13App.csproj", "{13281AA2-FA46-47FE-8E74-EB32C23EE67A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallbackTestApp", "CallbackTestApp\CallbackTestApp.csproj", "{C7E2E9A4-DCCB-405B-BC24-44EA1FA67C7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CallbackTestApp", "CallbackTestApp\CallbackTestApp.csproj", "{C7E2E9A4-DCCB-405B-BC24-44EA1FA67C7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelegateChainApp", "DelegateChainApp\DelegateChainApp.csproj", "{3F46FE66-0B0F-4093-AF58-BEAFF7C5D154}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DelegateChainApp", "DelegateChainApp\DelegateChainApp.csproj", "{3F46FE66-0B0F-4093-AF58-BEAFF7C5D154}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelegateChain2App", "DelegateChain2App\DelegateChain2App.csproj", "{1775A24A-9DBC-4018-8484-F999B35208E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsingEventApp", "UsingEventApp\UsingEventApp.csproj", "{2C26A386-EFB1-4F20-AB85-B4CB3B541010}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{3F46FE66-0B0F-4093-AF58-BEAFF7C5D154}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F46FE66-0B0F-4093-AF58-BEAFF7C5D154}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F46FE66-0B0F-4093-AF58-BEAFF7C5D154}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1775A24A-9DBC-4018-8484-F999B35208E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1775A24A-9DBC-4018-8484-F999B35208E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1775A24A-9DBC-4018-8484-F999B35208E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1775A24A-9DBC-4018-8484-F999B35208E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C26A386-EFB1-4F20-AB85-B4CB3B541010}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C26A386-EFB1-4F20-AB85-B4CB3B541010}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C26A386-EFB1-4F20-AB85-B4CB3B541010}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C26A386-EFB1-4F20-AB85-B4CB3B541010}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
