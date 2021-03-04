@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddressBookApp", "Chap99\AddressBookApp.csproj", "{27286E6E-8EB2-464F-855E-8B7DE777562C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAddressBookApp", "MyAddressBookApp\MyAddressBookApp.csproj", "{D608C0BA-4BCC-4D48-A057-E1E772225C5D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27286E6E-8EB2-464F-855E-8B7DE777562C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27286E6E-8EB2-464F-855E-8B7DE777562C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27286E6E-8EB2-464F-855E-8B7DE777562C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27286E6E-8EB2-464F-855E-8B7DE777562C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D608C0BA-4BCC-4D48-A057-E1E772225C5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D608C0BA-4BCC-4D48-A057-E1E772225C5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D608C0BA-4BCC-4D48-A057-E1E772225C5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D608C0BA-4BCC-4D48-A057-E1E772225C5D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {03E779E0-E8D7-4B92-8A01-7014F35B6A82}
+	EndGlobalSection
+EndGlobal
