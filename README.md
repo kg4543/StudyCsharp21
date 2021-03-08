@@ -1,10 +1,7 @@
 # StudyCsharp
 PKNU C# 학습 리포지토리
 
-## 📘 Basic C# 
-
-C#에서 사용하는 기본 문법 학습 <br>
-Console (.NET Core 및 .NET Framework) 활용
+## 📘 Basic C# (with Console)
 
 0. Hello World
 1. 데이터 지정 및 연산
