@@ -1,6 +1,8 @@
 # StudyCsharp
 PKNU C# 학습 리포지토리
 
+-------------------------------------
+
 ## 📘 C# - Console
 
 0. Hello World
@@ -19,6 +21,8 @@ PKNU C# 학습 리포지토리
 
 [C# Console 상세](https://github.com/kg4543/StudyCsharp21/blob/main/Console/README.md) <br>
 [C# console 소스 모음](https://github.com/kg4543/StudyCsharp21/tree/main/Console)
+
+-------------------------------------
 
 ## 📕 C# - Winform
 
