@@ -21,7 +21,7 @@ namespace Chap03App
     }
 }
 ```
-<Code/>
+<참고/>
 - Console.Write(); 값 출력 
 - Console.WriteLine(); 값 출력 + 줄 바꿈
 - Console.Read(); 값 입력
