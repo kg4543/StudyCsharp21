@@ -6,6 +6,27 @@ Console (.NET Core 및 .NET Framework) 활용
 -------------------------------------
 ## 0. Hello World
 
+```
+using System;
+
+namespace Chap03App
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // 주석입니다.
+            Console.WriteLine("Hello, World!");
+        }
+    }
+}
+```
+<Code>
+- Console.Write(); 값 출력 
+- Console.WriteLine(); 값 출력 + 줄 바꿈
+- Console.Read(); 값 입력
+- Console.ReadLine(); 값 입력 + 줄 바꿈 
+
 -------------------------------------
 ## 1. 데이터 형식 및 연산
 
@@ -35,6 +56,34 @@ C# 데이터 형식
  
 * 형식 변환 <br>
   값이 변수 형식과 맞지 않거나 범위를 벗어나 변수 형식을 바꿔주는 일
+  
+```
+ static void Main(string[] args)
+        {
+            short shmaxval = short.MaxValue;
+            int incastval = 0;
+            incastval = shmaxval;
+            Console.WriteLine($"short값 변환한 int값은 {incastval}");
+
+            incastval += 5;  //32767+5
+            short shcastval = (short)incastval;
+            Console.WriteLine($"short값 변환한 int값은 {shcastval}");  //overflow -32764
+
+            float flval = 3.141592f; // f or F 를 써야함
+            incastval = (int)flval;
+            Console.WriteLine($"float값 변환한 int값은 {incastval}");
+            double dlval = incastval; //3
+            Console.WriteLine($"int값 변환한 double값은 {dlval}");
+
+            object obj = 20; //boxing
+            int inUnboxingVal = (int)obj; // unboxing
+
+            string strVal = "200";
+            int result = int.Parse(strVal) * 3; //parse: 문자형을 숫자형으로 형 변환
+            Console.WriteLine($"200 * 3 = {result}");
+        }
+```
+[코드보기](https://github.com/kg4543/StudyCsharp21/tree/main/Console/chap03/Chap03App)
 
 -------------------------------------
 ## 2. 조건 / 반복 / 점프
