@@ -61,11 +61,6 @@ C# 데이터 형식
 ```
  static void Main(string[] args)
         {
-            short shmaxval = short.MaxValue;
-            int incastval = 0;
-            incastval = shmaxval;
-            Console.WriteLine($"short값 변환한 int값은 {incastval}");
-
             incastval += 5;  //32767+5
             short shcastval = (short)incastval;
             Console.WriteLine($"short값 변환한 int값은 {shcastval}");  //overflow -32764
@@ -75,9 +70,6 @@ C# 데이터 형식
             Console.WriteLine($"float값 변환한 int값은 {incastval}");
             double dlval = incastval; //3
             Console.WriteLine($"int값 변환한 double값은 {dlval}");
-
-            object obj = 20; //boxing
-            int inUnboxingVal = (int)obj; // unboxing
 
             string strVal = "200";
             int result = int.Parse(strVal) * 3; //parse: 문자형을 숫자형으로 형 변환
