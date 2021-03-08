@@ -1,7 +1,7 @@
 # StudyCsharp
 PKNU C# 학습 리포지토리
 
-## 📘 Basic C# - Console
+## 📘 C# - Console
 
 0. Hello World
 1. 데이터 지정 및 연산
@@ -17,5 +17,9 @@ PKNU C# 학습 리포지토리
 11. File 다루기
 12. Thread
 
-[C# 기본학습 상세](https://github.com/kg4543/StudyCsharp21/blob/main/Console/README.md) <br>
+[C# Console 상세](https://github.com/kg4543/StudyCsharp21/blob/main/Console/README.md) <br>
 [C# console 소스 모음](https://github.com/kg4543/StudyCsharp21/tree/main/Console)
+
+## 📕 C# - Winform
+
+
