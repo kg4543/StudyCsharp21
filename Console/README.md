@@ -21,13 +21,13 @@ namespace Chap03App
     }
 }
 ```
-<참고/>
+<참고\>
 - Console.Write(); 값 출력 
 - Console.WriteLine(); 값 출력 + 줄 바꿈
 - Console.Read(); 값 입력
 - Console.ReadLine(); 값 입력 + 줄 바꿈 
-- //: 한줄 주석
-- ///: 여러줄 
+- // : 한줄 주석
+- /// : 여러줄 
 
 -------------------------------------
 ## 1. 데이터 형식 및 연산
