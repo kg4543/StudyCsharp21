@@ -1,7 +1,7 @@
 # StudyCsharp
 PKNU C# 학습 리포지토리
 
-## 📘 Basic C# (with Console)
+## 📘 Basic C# - Console
 
 0. Hello World
 1. 데이터 지정 및 연산
