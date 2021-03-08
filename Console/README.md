@@ -18,21 +18,21 @@ C# 데이터 형식
 <kbd>![정수형식](.png "정수형식")</kbd>
 
  2. 실수 형식
-float: '3.14f'와 같이 뒤에 f를 붙여 소수값 지정 / 4 byte
-double: float과 달리 그냥 소수값 지정 / 8 byte
-decimal: 29자리 데이터 표현 / 16 byte
+- float: '3.14f'와 같이 뒤에 f를 붙여 소수값 지정 / 4 byte
+- double: float과 달리 그냥 소수값 지정 / 8 byte
+- decimal: 29자리 데이터 표현 / 16 byte
 
  3. 논리 형식
-bool: True or False / 1 byte
+- bool: True or False / 1 byte
 
-* 변수 지정
+* 변수 지정 <br>
 메모리를 할당해서 할당된 공간에 값을 넣음
 이때 저장된 데이터가 Heap, 할당된 메모리 위치를 가리키는 주소를 Stack이라고 한다.
 
-* Overflow
+* Overflow <br>
  지정 값이 변수 범위를 벗어날 경우 값이 '0'이 된다.
  
-* 형식 변환
+* 형식 변환 <br>
   값이 변수 형식과 맞지 않거나 범위를 벗어나 변수 형식을 바꿔주는 일
 
 -------------------------------------
