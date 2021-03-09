@@ -47,7 +47,7 @@ C# 데이터 형식
  3. 논리 형식
 - bool: True or False / 1 byte
 
- +\ const 상수값 지정
+ \+ const 상수값 지정
 - 'const int x = 10'과 같이 변수 앞에 붙여 이후 변수값이 더 이상 바뀌지 않도록 고정 시킴
 
 <참고\>
