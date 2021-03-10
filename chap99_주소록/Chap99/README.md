@@ -81,25 +81,208 @@ while (true)
 ## 2. Insert
 
 <kbd>![Insert](/chap99_주소록/실행화면/주소입력.PNG "주소입력")</kbd>
+```
+public void inputAddress()
+        {
+            Console.WriteLine("주소입력");
+            Console.WriteLine("----------------------------------------");
+            Console.Write("이름 입력 : ");
+            string name = Console.ReadLine();
+            Console.Write("전화입력 : ");
+            string phone = Console.ReadLine();
+            Console.Write("주소입력 : ");
+            string address = Console.ReadLine();
+
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(phone))
+            {
+                Console.WriteLine("빈값은 입력할 수 없습니다.");
+                Console.ReadLine();
+            }
+            else
+            {
+                listAddress.Add(new AddressInfo() { Name = name, Phone = phone, Address = address });
+            }
+        }
+```
 -------------------------------------
 
 
 ## 3. Select
 <kbd>![Select](/chap99_주소록/실행화면/주소검색.PNG "주소검색")</kbd>
+```
+public void SearchAddress()
+        {
+            Console.WriteLine("주소검색");
+            Console.WriteLine("----------------------------------------");
+            Console.Write("이름 입력 : ");
+            string name = Console.ReadLine();
+            int idx = 0;
+            bool isFind = false; // 검색된 이름이 있는지?
+            foreach (var item in listAddress)
+            {
+                if (item.Name == name)
+                {
+                    isFind = true; //찾음
+                    Console.WriteLine();
+                    Console.WriteLine($"[{idx}]-------------------------------------");
+                    Console.WriteLine($"이름 : {item.Name}");
+                    Console.WriteLine($"전화 : {item.Phone}");
+                    Console.WriteLine($"주소 : {item.Address}");
+                    Console.WriteLine("----------------------------------------");
+                    break; //foreach를 빠져나감
+                }
+                idx++;
+            }
+            if (isFind == false)
+            {
+                Console.WriteLine("검색결과가 없습니다.");
+            }
+            Console.ReadLine(); //화면멈춤
+        }
+```
 -------------------------------------
 
 
 ## 4. Update
 <kbd>![Update](/chap99_주소록/실행화면/주소수정.PNG "주소수정")</kbd>
+```
+public void UpdateAddress()
+        {
+            Console.WriteLine("주소수정");
+            Console.WriteLine("----------------------------------------");
+            Console.Write("이름 입력 : ");
+            string name = Console.ReadLine();
+            int idx = 0;
+            bool isFind = false; // 검색된 이름이 있는지?
+            foreach (var item in listAddress)
+            {
+                if (item.Name == name)
+                {
+                    isFind = true; //찾음
+                    Console.WriteLine("");
+                    Console.WriteLine($"[{idx}]-------------------------------------");
+                    Console.WriteLine($"이름 : {item.Name}");
+                    Console.WriteLine($"전화 : {item.Phone}");
+                    Console.WriteLine($"주소 : {item.Address}");
+                    Console.WriteLine("----------------------------------------");
+
+
+                    Console.Write("이름 재입력 : ");
+                    string uName = Console.ReadLine();
+                    Console.Write("전화 재입력 : ");
+                    string uPhone = Console.ReadLine();
+                    Console.Write("주소 재입력 : ");
+                    string uAddress = Console.ReadLine();
+
+                    if (string.IsNullOrEmpty(uName) || string.IsNullOrEmpty(uPhone))
+                    {
+                        Console.WriteLine("빈값은 입력할 수 없습니다.");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        item.Name = uName;
+                        item.Phone = uPhone;
+                        item.Address = uAddress;
+                    }
+                    break; //foreach를 빠져나감
+                }
+                idx++;
+            }
+            if (isFind == false)
+            {
+                Console.WriteLine("검색결과가 없습니다.");
+            }
+            Console.ReadLine();
+        }
+```
 -------------------------------------
 
 ## 5. Delete
 <kbd>![Delete](/chap99_주소록/실행화면/주소삭제.PNG "주소삭제")</kbd>
+```
+public void DeleteAddress()
+        {
+            Console.WriteLine("주소검색");
+            Console.WriteLine("----------------------------------------");
+            Console.Write("이름 입력 : ");
+            string name = Console.ReadLine();
+            int idx = 0;
+            bool isFind = false;
+            foreach (var item in listAddress)
+            {
+                if (item.Name == name)
+                {
+                    isFind = true;
+                    Console.WriteLine($"[{idx}]-------------------------------------");
+                    Console.WriteLine($"이름 : {item.Name}");
+                    Console.WriteLine($"전화 : {item.Phone}");
+                    Console.WriteLine($"주소 : {item.Address}");
+                    Console.WriteLine("----------------------------------------");
+                    Console.WriteLine("정말 삭제하시겠습니까? [Y/N]");
+                    string answer = Console.ReadLine();
+                    if (answer.ToLower() == "y")
+                    {
+                        listAddress.RemoveAt(idx);
+                        Console.WriteLine("삭제되었습니다.");
+                    }
+                    break; //foreach를 빠져나감
+                }
+                idx++;
+            }
+            if (isFind == false)
+            {
+                Console.WriteLine("검색결과가 없습니다.");
+            }
+            Console.ReadLine();
+        }
+```
 -------------------------------------
 
 ## 6. Select *
 <kbd>![Select_all](/chap99_주소록/실행화면/주소전체출력.PNG "주소전체출력")</kbd>
+```
+public void PrintAddress()
+        {
+            int idx = 0;
+            if (listAddress.Count == 0)
+            {
+                Console.WriteLine("주소록이 없습니다.");
+            }
+            else
+            {
+                foreach (var item in listAddress)
+                {
+                    Console.WriteLine($"[{idx}]-------------------------------------");
+                    Console.WriteLine($"이름 : {item.Name}");
+                    Console.WriteLine($"전화 : {item.Phone}");
+                    Console.WriteLine($"주소 : {item.Address}");
+                    Console.WriteLine("----------------------------------------");
+                    Console.WriteLine();
+                    idx++;
+                }
+            }
+            Console.ReadLine();
+        }
+```
 -------------------------------------
 
 ## 7. 데이터 저장
+```
+public void WriteData(List<AddressInfo> list)
+        {
+            var filePath = Environment.CurrentDirectory + "\\" + dataFileName; // 데이터파일 저장 위치 
+            StreamWriter sw = new StreamWriter(
+                           new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.Write)
+                           );
+            if (list.Count > 0)
+            {
+                foreach (var item in list)
+                {
+                    sw.WriteLine($"{item.Name}|{item.Phone}|{item.Address}");
+                }
+            }
+            sw.Close();
+        }
+```
 -------------------------------------
