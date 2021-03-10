@@ -3,12 +3,18 @@
 ## 0. 데이터 받아오기
 
 ```
- AddressManager manager = new AddressManager();
- manager.listAddress = new List<AddressInfo>();
+class MAinApp
+    {
+        static void Main(string[] args)
+        {
+                AddressManager manager = new AddressManager();
+                manager.listAddress = new List<AddressInfo>();
 
- DataFileManager fileManager = new DataFileManager();
- manager.listAddress = fileManager.ReadData();
-
+                DataFileManager fileManager = new DataFileManager();
+                manager.listAddress = fileManager.ReadData();
+        }
+     }
+     
 class DataFileManager
     {
         string dataFileName = "address.dat";
