@@ -255,7 +255,3 @@ static void Main(string[] args)
 -------------------------------------
 ## Thread
 
--------------------------------------
-## Practice (주소록)
-
-[코드보기](/Console/chap99_주소록/Chap99/Chap99)
