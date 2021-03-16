@@ -140,6 +140,7 @@ namespace Chap03App
   - Goto 위치 : 사전에 위치를 정한 곳으로 이동 (코드가 꼬일 가능이 높아 사용하지 않는걸 권장) 
    
  [코드보기](https://github.com/kg4543/StudyCsharp21/tree/main/Console/chap05/Chap05App)
+ 
 -------------------------------------
 ## 메소드
  - 실행할 코드를 하나로 묶어서 실행 및 관리
@@ -180,6 +181,7 @@ namespace Chap03App
 
  2. 참조 형식
  - 특정 조건으로 변수를 초기화할 때 사용
+ - 입력값을 넣을 때 참조형식으로 넣어 변수를 출력 받음
 
   ```
   static void Main(string[] args)
