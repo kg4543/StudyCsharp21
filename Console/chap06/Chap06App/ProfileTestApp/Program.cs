@@ -10,7 +10,7 @@ namespace ProfileTestApp
     {
         static void Main(string[] args)
         {
-            PrintProfile("김구겸", "010-4521-8100");
+            PrintProfile("김구겸", "010-4000-8000");
 
             PrintProfile(null, "010-4568-8745");
 
@@ -18,13 +18,12 @@ namespace ProfileTestApp
             {
               
             }
-
             //PrintProfile(phone:"010-2222-1111",name:"홍길동");
             PrintProfile("강백호",null);
 
         }
 
-        public static int PrintProfile(string name, string phone /*= "010-7979-7979"*/)
+        public static int PrintProfile(string name, string phone)
         {
             if(string.IsNullOrEmpty(name))
             {

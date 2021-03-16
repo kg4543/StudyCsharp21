@@ -24,7 +24,6 @@ namespace SortingTestApp
             int temp = p1; // temp = 47
             p1 = p2; // p1 = 5 , p2 = 5
             p2 = temp; // p2 = 47
-
         }
     }
 }
