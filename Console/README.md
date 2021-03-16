@@ -34,15 +34,15 @@ namespace Chap03App
 
 값 형식 (숫자 형식 , 논리 형식)
 
- 1. 정수 형식 <br>
+### 1. 정수 형식 <br>
 <kbd>![정수형식](/Console/참고자료/정수형식.PNG "정수형식")</kbd>
 
- 2. 실수 형식
+### 2. 실수 형식
 - float: '3.14f'와 같이 뒤에 f를 붙여 소수값 지정 / 4 byte
 - double: float과 달리 그냥 소수값 지정 / 8 byte
 - decimal: 29자리 데이터 표현 / 16 byte
 
- 3. 논리 형식
+### 3. 논리 형식
 - bool: True or False / 1 byte
 
  \+ const 상수값 지정
