@@ -10,7 +10,7 @@ namespace TryCatchFinallyApp
     {
         static void Main(string[] args)
         {
-            try // 매너
+            try 
             {
                 Console.Write("제수를 입력하세요: ");
                 string temp = Console.ReadLine(); // string으로 입력받음
