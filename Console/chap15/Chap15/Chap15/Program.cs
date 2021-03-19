@@ -55,10 +55,10 @@ namespace Chap15
             profiles.Add(new Profile() { Name = "하하", Height = 171 });
 
             List<Product> products = new List<Product>();
-            profiles.Add(new Product() { Title = "C_IT", Star = "정우성" });
-            profiles.Add(new Product() { Title = "K_뷰티", Star = "김태희" });
-            profiles.Add(new Product() { Title = "D_자동차", Star = "고현정" });
-            profiles.Add(new Product() { Title = "A_제약", Star = "이문세" });
+            products.Add(new Product() { Title = "C_IT", Star = "정우성" });
+            products.Add(new Product() { Title = "K_뷰티", Star = "김태희" });
+            products.Add(new Product() { Title = "D_자동차", Star = "고현정" });
+            products.Add(new Product() { Title = "A_제약", Star = "이문세" });
 
             var resProfiles = from item in profiles
                               where item.Height < 175
