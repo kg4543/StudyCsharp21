@@ -143,6 +143,7 @@ namespace Chap03App
  
 -------------------------------------
 ## 4. 메소드
+
  - 실행할 코드를 하나로 묶어서 실행 및 관리
  
  ### 1. 메소드 지정 및 호출
@@ -180,6 +181,7 @@ namespace Chap03App
  - 따라서 형식을 (void)로 지정 시 return값이 없다.
 
  ### 2. 참조 형식
+ 
  - 특정 조건으로 변수를 초기화할 때 사용
  - 입력값을 넣을 때 참조형식으로 넣어 변수를 출력 받음
 
@@ -319,6 +321,7 @@ class ArmorSuite
 - base.Initialize()로 상위클래스 내용을 다시 불러올 수도 있다.
 
 ### 4. OverLoading
+
 - 하위클래스에서 상위클래스와 동일하게 메소드를 선언하나 내부 일력 형식을 달리하여 생성하는 입력 형식에 따라 클래스를 구분해서 생성
 
 ```
@@ -398,18 +401,178 @@ interface IRunnable
     }
 ```
 
+[코드참조](/Console/chap07/Chap07App/AcessModifierTestApp/MainApp.cs) 
+
 -------------------------------------
 ## 7. 배열과 Index
 
--------------------------------------
-## 일반화 클래스
+- 데이터를 한 묶음으로 표현하여 Index로 데이터 하나하나를 사용
+
+### 1. 배열 입력 및 변경
+
+ - 1차원
+```
+int[] array = { 80, 74, 81, 90, 34 };
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.WriteLine($"{i + 1}번째 값 : {array[i]}");
+            }
+
+            Console.WriteLine("크기변경");
+            Array.Resize(ref array, 6);
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.WriteLine($"{i + 1}번째 값 : {array[i]}");
+            }
+
+            Console.WriteLine("인덱스 찾기");
+            int idx = Array.IndexOf(array, 81);
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = array[i - 1];
+            }
+            array[idx] = 50;
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = array[i - 1];
+            }
+            // 
+            int[] source = { 11, 21, 33, 45, 56 }; // 5개 int 배열
+            int[] target = new int[source.Length]; // 5개 int 배열 초기화
+
+            CopyArray(source, target); // int 배열 복사
+            Console.WriteLine("배열복사");
+```
+ - 2차원
+```
+ static void Main(string[] args)
+        {
+            int[,] arr = new int[2, 3] { {1,2,3 },{4,5,6 } };
+
+            for (int i = 0; i < arr.GetLength(0); i++) // 행
+            {
+                for (int j = 0; j < arr.GetLength(1); j++) // 열
+                {
+                    Console.Write($"[{i},{j}] :{arr[i,j]} \t");
+                }
+                Console.WriteLine("");
+            }
+        }
+```
+[코드참조](/Console/chap10/Chap10/Chap10/Program.cs) 
+[코드참조(정렬)](/Console/chap11/Chap11/GenericListApp/Program.cs) 
+
+## 2. List
+
+- 'System.Collections'로 'ArrayList' & 'Dictionary' 를 활용하여 배열을 표기할 수도 있다.
+```
+using System;
+using System.Collections;
+
+ArrayList array = new ArrayList(new[] { 80, 74, 81, 90, 34 });
+
+foreach (var item in array)
+            {
+                Console.Write($"{item}  ");
+            }
+
+int[] arr = { 123, 456, 789 };
+            ArrayList list = new ArrayList(arr);
+            ArrayList list2 = new ArrayList(new int[] { 123, 456, 789 });
+            ArrayList list3 = new ArrayList { 123, 456, 789 };
+            
+Dictionary<int, string> pairs = new Dictionary<int, string>()
+            {
+                {1, "one"},
+                {2, "two"},
+                {3, "three"},
+                /*{4, "four"},
+                {5, "five"},*/
+            };
+            /*pairs[1] = "One";
+            pairs[2] = "Two";
+            pairs[3] = "Three";*/
+            pairs[4] = "Four";
+            pairs[5] = "Five";
+```
 
 -------------------------------------
 ## 예외 처리
 
+try
+{오류검사를 할 구문}
+catch
+{오류가 발생 시 Load할 구문}
+finally
+{오류의 여부와 상관없이 항상 사용할 구문}
+```
+try 
+            {
+                Console.Write("제수를 입력하세요: ");
+                string temp = Console.ReadLine(); // string으로 입력받음
+                int divisor = int.Parse(temp);
+
+                Console.Write("피제수를 입력하세요 : ");
+                temp = Console.ReadLine();
+                int dividend = int.Parse(temp);
+
+                Console.WriteLine($"{divisor} / {dividend} = {Divide(divisor, dividend)}");
+            }
+            catch(NotImplementedException ex)
+            {
+                Console.WriteLine($"미구현 예외 발생 : {ex.Message}");
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine($"입력값 예외 발생 : {ex.Message}");
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine($"나누기예외 발생 : {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"예외 발생 : {ex.Message}");
+            }
+            finally
+            {
+                Console.WriteLine("예외 발생 유무와 상관없이 항상 실행");
+            }
+```
+- 예상되는 오류 유형에 따라 catch구문을 만들어 줄 수도 있다.
 -------------------------------------
 ## 이벤트와 대리자
 
+- 이벤트는 사용자가 특정 행동을 했을 때 어떤 일이 생겼는지 알려주는데 이를 대리자로 지정하여 실행
+- 대리자를 통해 여러 이벤트를 묶어서 실행시킬 수 있다.
+```
+namespace DelegateChainApp
+{
+    delegate void AllCalc(int x, int y); //대리자 선언
+
+    class Program
+    {
+        static void Plus(int a, int b) { Console.WriteLine($"a + b = {a + b}"); }
+        static void Minus(int a, int b) { Console.WriteLine($"a - b = {a - b}"); }
+        static void Multiple(int a, int b) { Console.WriteLine($"a * b = {a * b}"); }
+        static void Devide(int a, int b) { Console.WriteLine($"a / b = {a / b}"); }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Calculating!!!");
+            AllCalc allCalc = Plus;
+            allCalc += Minus;
+            allCalc += Multiple;
+            allCalc += Devide;
+
+            allCalc(10, 5); //대리자를 통해 method를 묶어서 한번에 호출
+
+            allCalc -= Multiple;
+            allCalc(10, 5);
+         }
+    }
+}    
+```
 -------------------------------------
 ## 람다식 & LINQ
 
