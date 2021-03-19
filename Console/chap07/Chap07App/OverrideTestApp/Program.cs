@@ -4,7 +4,6 @@ namespace OverrideTestApp
 {
     class ArmorSuite
     {
-        // 자식 클래스에서 재정의할거야..
         public virtual void Initialize()
         {
             Console.WriteLine("ArmorSuite 초기화");
@@ -25,7 +24,6 @@ namespace OverrideTestApp
     {
         public override void Initialize()
         {
-            base.Initialize();
             Console.WriteLine("Warmachine parts 장착");
             Console.WriteLine("Warmachine 1기 완료");
         }
