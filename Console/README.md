@@ -348,7 +348,7 @@ private static int Sum(params int [] args)
         }
 ```
 - 배열을 활용하여 입력 갯수와 상관없이 만들 수도 있다. ('private static int Sum(params int [] args)')
-- 
+ 
 -------------------------------------
 ## 6. 인터페이스 와 추상 클래스
 
