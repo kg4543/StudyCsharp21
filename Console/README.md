@@ -498,7 +498,7 @@ Dictionary<int, string> pairs = new Dictionary<int, string>()
 ```
 
 -------------------------------------
-## 예외 처리
+## 8. 예외 처리
 
 try
 {오류검사를 할 구문}
@@ -542,7 +542,7 @@ try
 ```
 - 예상되는 오류 유형에 따라 catch구문을 만들어 줄 수도 있다.
 -------------------------------------
-## 이벤트와 대리자
+## 9. 이벤트와 대리자
 
 - 이벤트는 사용자가 특정 행동을 했을 때 어떤 일이 생겼는지 알려주는데 이를 대리자로 지정하여 실행
 - 대리자를 통해 여러 이벤트를 묶어서 실행시킬 수 있다.
@@ -574,11 +574,201 @@ namespace DelegateChainApp
 }    
 ```
 -------------------------------------
-## 람다식 & LINQ
+## 10. 람다식 LINQ
+
+- 'using System.Linq'를 활용하여 객체를 배열로 쉽게 생성시킬 수 있다.
+
+```
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+    class Profile
+    {
+        public string Name { get; set; }
+        public short Height { get; set; }
+
+    }
+
+    class Product
+    {
+        public string Title { get; set; }
+        public string Star { get; set; }
+
+    }
+    
+class Program
+{
+    static void Main(string[] args)
+    {
+            List<Profile> profiles = new List<Profile>();
+            profiles.Add(new Profile() { Name = "정우성", Height = 186 });
+            profiles.Add(new Profile() { Name = "김태희", Height = 158 });
+            profiles.Add(new Profile() { Name = "고현정", Height = 172 });
+            profiles.Add(new Profile() { Name = "이문세", Height = 178 });
+            profiles.Add(new Profile() { Name = "하하", Height = 171 });
+
+            List<Product> products = new List<Product>();
+            products.Add(new Product() { Title = "C_IT", Star = "정우성" });
+            products.Add(new Product() { Title = "K_뷰티", Star = "김태희" });
+            products.Add(new Product() { Title = "D_자동차", Star = "고현정" });
+            products.Add(new Product() { Title = "A_제약", Star = "이문세" });
+            
+            var resProfiles = from item in profiles
+                              where item.Height < 175
+                              orderby item.Height descending /*ascending*/
+                              select new
+                              {
+                                  Name = item.Name,
+                                  Height = item.Height,
+                                  InchHeight = item.Height * 0.393
+                              };
+
+            foreach (var item in resProfiles)
+            {
+                Console.WriteLine($"{item.Name}, {item.Height}cm, {item.InchHeight}Inch");
+            }
+    }
+}
+```
+-------------------------------------
+## 11. File 다루기
+
+- 'using System.IO;'를 통해 파일을 생성 및 읽기
+
+```
+using System;
+using System.IO;
+
+namespace TextFileApp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string filePath = @"D:\GitRepository\StudyCsharp21\SampleDir\SubFolder\a.dat"; //텍스트 파일 생성위치
+
+            StreamWriter sw = null; 
+
+            try
+            {
+                sw = new StreamWriter(new FileStream(filePath, FileMode.OpenOrCreate,FileAccess.Write));
+                sw.WriteLine($"int.MaxValue = {int.MaxValue}");
+                sw.WriteLine("Hello, World!");
+                sw.WriteLine($"unit.MaxValue = {uint.MaxValue}");
+                sw.WriteLine("안녕하세요!!");
+                sw.WriteLine($"unit.MaxValue = {double.MaxValue}");
+
+                Console.WriteLine("파일 생성");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"파일 쓰기 예외발생 : {ex.Message}");
+            }
+            finally
+            {
+                if (sw != null)
+                    sw.Close();
+            }
+
+            StreamReader sr = null;
+            try
+            {
+                sr = new StreamReader(new FileStream(filePath, FileMode.Open, FileAccess.Read));
+                Console.WriteLine($"File size : {sr.BaseStream.Length} bytes");
+
+                while (sr.EndOfStream == false)
+                {
+                    Console.WriteLine(sr.ReadLine());
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"파일 쓰기 예외발생 : {ex.Message}");
+            }
+            finally
+            {
+                if(sr != null)
+                sr.Close();
+            }
+        }
+    }
+}
+```
+
+<참고\>
+- sw = new StreamWriter(new FileStream(filePath, FileMode.OpenOrCreate,FileAccess.Write));
+   - 파일을 해당 경로(filePath)에 생성 및 생성이 되있는 경우 덮어쓰기
+- sr = new StreamReader(new FileStream(filePath, FileMode.Open, FileAccess.Read));
+   - 파일을 해당 경로(filePath)에 열람
 
 -------------------------------------
-## File 다루기
+## 12. Thread
 
--------------------------------------
-## Thread
+- CPU에서 진행할 명령의 단위
+- Thread를 사용하지 않을 경우 하나의 명령이 끝날 때까지 다른 작업을 할 수 없다.
+- 이에 여러개의 Thread를 생성하여 한번에 여러개의 동시 작업을 수행 시킬 수 있다.
+```
+    class Program
+    {
+        static void Dosomething()
+        {
+            for (int i = 0; i < 50; i++)
+            {
+                Console.WriteLine($"Dosomething : {i}");
+                Thread.Sleep(10); // 1000 = 1 초
+            }
+        }
+
+        static void SomethingHappened()
+        {
+            for (int i = 0; i < 50; i++)
+            {
+                Console.WriteLine($"SomethingHappened : {i}");
+                Thread.Sleep(10); // 1000 = 1 초
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            Thread thread = new Thread(new ThreadStart(Dosomething));
+            Thread thread1 = new Thread(SomethingHappened);
+            try
+            {
+                Console.WriteLine("Thread Start!");
+                thread.Start();
+                thread1.Start();
+
+                for (int i = 0; i < 50; i++)
+                {
+                    Console.WriteLine($"Main thread : {i}");
+                    Thread.Sleep(10);
+
+                    if (i == 10)
+                        thread.Abort(); // 중간에 종료
+                }
+
+                Console.WriteLine("스레드 종료 대기...");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"{ex.Message}");
+            }
+            finally
+            {
+                thread.Join();
+                thread1.Join();
+
+                Console.WriteLine("스레드 종료...");
+            }
+        }
+    }
+}
+```
+```
+Thread thread = new Thread(new ThreadStart(Dosomething));
+Thread thread1 = new Thread(SomethingHappened);
+```
+- 일반적으로는 'Dosomething'이 끝나고 'SomethingHappened'가 발생해야 하나 Thread를 이용해 CPU에서 번갈아 가면서 실행을 시킨다.
 
