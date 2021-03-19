@@ -142,7 +142,7 @@ namespace Chap03App
  [코드보기](https://github.com/kg4543/StudyCsharp21/tree/main/Console/chap05/Chap05App)
  
 -------------------------------------
-## 메소드
+## 4. 메소드
  - 실행할 코드를 하나로 묶어서 실행 및 관리
  
  ### 1. 메소드 지정 및 호출
@@ -229,13 +229,177 @@ static void Main(string[] args)
 - 입력값과 별개로 출력값을 받을 수 있도록 변수를 
 
 -------------------------------------
-## 클래스와 인스턴스 + 상속
+## 5. 클래스와 인스턴스 + 상속
+
+ ### 1. 클래스
+ 
+- 객체를 만들기 위한 객체의 구조 및 기능을 정의 (객체지향 프로그래밍)
+- 클래스 = 속성 + 기능
+- 인스턴스 = 클래스에서 정의되어 만들어지는 객체
+
+### 2. 상속 (다형성)
+
+- 기존클래스를 확장하여 새로운 하위 클래스를 생성
+- 여러클래스에서 공통인 부분을 뽑아 상위클래스로 제작
+- 하위클래스에서는 상위클래스의 속성 및 기능을 사용가능
+- 또한 하위클래스는 상위클래스로 Convert가능
+
+```
+class 포유류
+    {
+        public void 키우다()
+        {
+            Console.WriteLine("키우다!!");
+        }
+    }
+
+    class 강아지 : 포유류
+    {
+        public void 멍멍()
+        {
+            Console.WriteLine("멍멍!");
+        }
+    }
+    class 고양이 : 포유류
+    {
+        public void 야옹()
+        {
+            Console.WriteLine("야옹~");
+        }
+    }
+     static void Main(string[] args)
+        {
+            포유류 왕 = new 포유류();
+            왕.키우다();
+            //왕.멍멍(); 불가능
+            왕 = new 강아지();
+            왕.키우다();
+            강아지 구피;
+
+            if (왕 is 강아지)
+            {
+                구피 = 왕 as 강아지; //41번 줄에 구피에 값이 없어 여기서 값을 지정받음
+                구피.멍멍();
+                Console.WriteLine("오즈");
+            }
+         }
+```
+### 다형성
+- Object가 여러모양을 가질 수 있다는 뜻으로 up-casting과 down-casting을 통해 객체를 상위 or 하위클래스로 변환
+- 상위 클래스 포유류에서 '왕' 객체를 생성
+- '왕.멍멍()'은 불가 (상위클래스에서는 하위클래스 기능 사용불가)
+- 왕을 강아지 객체로 변환가능 (상위클래스 형식 객체를 하위클래스로 생성가능) : down-casting
+- 강아지객체인 '왕'이 '왕.키우다()' 사용가능 (하위클래스는 상위클래스를 물려받아 확장한 것이므로 상위클래스의 기능을 사용가능)
+- 반대로 하위클래스는 상위클래스로 바꾸는게 힘듦 ? up-casting
+- '강아지 구피' 를 '구피 = 왕 as 강아지'를 통해 '왕'의 속성 및 기능을 물려받아 객체를 생성
+- 이 때 '왕 as 강아지'하기 전 if(왕 is 강아지) 를 통해 down-casting이 되었는지 확인
+
+### 3. OverRiding
+
+```
+class ArmorSuite
+    {
+        public virtual void Initialize()
+        {
+            Console.WriteLine("ArmorSuite 초기화");
+        }
+    }
+
+    class IronMan : ArmorSuite
+    {
+        public override void Initialize()
+        {
+            base.Initialize();
+            Console.WriteLine("IronMan parts 장착");
+            Console.WriteLine("IronMan 1기 완료");
+        }
+    }
+```
+- 상위클래스(ArmorSuit)에서 지정한 메소드(Initialize)를 하위클래스(IronMan)에서 다시 정의
+- base.Initialize()로 상위클래스 내용을 다시 불러올 수도 있다.
+
+### 4. OverLoading
+- 하위클래스에서 상위클래스와 동일하게 메소드를 선언하나 내부 일력 형식을 달리하여 생성하는 입력 형식에 따라 클래스를 구분해서 생성
+
+```
+private static int Sum(params int [] args)
+        {
+            int result = 0;
+            foreach (int item in args)
+            {
+                result += item;
+            }
+            return result;
+        }
+        #region Plus_overloading
+        private static int Plus(int v1, int v2)
+        {
+            int result = v1 + v2;
+            Console.Write("int 오버로딩: ");
+            Console.WriteLine($"{result}");
+            return result;
+        }
+        private static float Plus(float v1, float v2)
+        {
+            float result = v1 + v2;
+            Console.Write("float 오버로딩: ");
+            Console.WriteLine($"{result}");
+            return result;
+        }
+```
+- 배열을 활용하여 입력 갯수와 상관없이 만들 수도 있다. ('private static int Sum(params int [] args)')
+ 
+-------------------------------------
+## 6. 인터페이스 와 추상 클래스
+
+- 선언만 하고 구현 내용이 없는 클래스
+- 자기 스스로 new를 해서 객체를 생성할 수 없다.
+- Extends(추상클래스) 와 Implememts(인터페이스)를 통해서 하위 클래스에서 객체를 생성한다.
+
+```
+interface IRunnable
+    {
+        void Run();
+    }
+    interface IFlyable
+    {
+        void Fly();
+    }
+    class DroneCar : IRunnable, IFlyable
+    {
+        public void Fly()
+        {
+            Console.WriteLine("날아!");
+        }
+
+        public void Run()
+        {
+            Console.WriteLine("달려!");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("드론카!");
+
+            DroneCar dreamCar = new DroneCar();
+            dreamCar.Run();
+            dreamCar.Fly();
+
+            Console.WriteLine("자동차로 변경 (interface)");
+            IRunnable car = dreamCar;
+            car.Run();
+            // car.Fly(); error 
+
+            IFlyable plane = dreamCar;
+            plane.Fly();
+        }
+    }
+```
 
 -------------------------------------
-## 인터페이스 와 추상 클래스
-
--------------------------------------
-## 배열과 Index
+## 7. 배열과 Index
 
 -------------------------------------
 ## 일반화 클래스
@@ -255,7 +419,3 @@ static void Main(string[] args)
 -------------------------------------
 ## Thread
 
--------------------------------------
-## Practice (주소록)
-
-[코드보기](/Console/chap99_주소록/Chap99/Chap99)
