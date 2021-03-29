@@ -34,4 +34,4 @@ PKNU C# 학습 리포지토리
 -------------------------------------
 ## 📕 C# - Winform
 
-[C# Winform 추가](https://github.com/kg4543/StudyDesktopApp) <br>
+[C# Winform 상세](https://github.com/kg4543/StudyDesktopApp) <br>
