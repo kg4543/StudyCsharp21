@@ -37,4 +37,5 @@ PKNU C# 학습 리포지토리
 <kbd>![Basic](/Winform/capture/Basic.PNG "Basic")</kbd> <br>
 <kbd>![FileCopy](Winform/capture/FileCopy.PNG "FileCopy")</kbd>
 
+[C# Winform 상세](/Winform/README.md) <br>
 [C# Winform 추가](https://github.com/kg4543/StudyDesktopApp) <br>
