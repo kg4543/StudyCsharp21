@@ -1,5 +1,5 @@
 # Winform Basic
 
-<kbd>![Basic](/capture/Basic.PNG "Basic")</kbd> <br>
+<kbd>![Basic](/Winform/capture/Basic.PNG "Basic")</kbd> <br>
 
-<kbd>![FileCopy](/capture/FileCopy.PNG "FileCopy")</kbd>
+<kbd>![FileCopy](/Winform/capture/FileCopy.PNG "FileCopy")</kbd>
