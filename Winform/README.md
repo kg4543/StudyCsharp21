@@ -182,7 +182,8 @@ private void BtnSource_Click(object sender, EventArgs e)
 
 ## 2. 비동기
 
-* 결과값이 바뀌는데 텀이 존재
+* 요청에 대한 응답이 오지 않아도 새로운 요청을 보내고 처리되는 요청대로 응답
+* Thread를 사용하는 것과  동일한 역활
 
 ```
 private async void BtnAsyncCopy_Click(object sender, EventArgs e)
@@ -219,7 +220,7 @@ private async void BtnAsyncCopy_Click(object sender, EventArgs e)
 
 ## 3. 동기
 
-* 결과 값이 실시간으로 바뀜
+* 요청에 대한 응답이 오면 다음 작업을 요청
 
 ```
 private void BtnSyncCopy_Click(object sender, EventArgs e)
