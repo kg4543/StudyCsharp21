@@ -151,8 +151,10 @@ private void BtnAddRoot_Click(object sender, EventArgs e)
             }
         }
 ```
-
+------------------------------------------------
 # 2. File Copy
+
+<kbd>![FileCopy](/Winform/capture/FileCopy.PNG "FileCopy")</kbd>
 
 ## 1. File 선택
 
@@ -251,4 +253,3 @@ private long CopySync(string sourcePath, string targetPath)
             return totalCopied;
         }
 ```
-<kbd>![FileCopy](/Winform/capture/FileCopy.PNG "FileCopy")</kbd>
