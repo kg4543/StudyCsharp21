@@ -183,6 +183,7 @@ private void BtnSource_Click(object sender, EventArgs e)
 ## 2. 비동기
 
 * 요청에 대한 응답이 오지 않아도 새로운 요청을 보내고 처리되는 요청대로 응답
+* 요청해놓고 딴 일을 하고 있을 수 있다.
 * Thread를 사용하는 것과  동일한 역활
 
 ```
@@ -221,6 +222,7 @@ private async void BtnAsyncCopy_Click(object sender, EventArgs e)
 ## 3. 동기
 
 * 요청에 대한 응답이 오면 다음 작업을 요청
+* 요청에 대한 응답이 올 때까지 다른 일 못 함
 
 ```
 private void BtnSyncCopy_Click(object sender, EventArgs e)
